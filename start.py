@@ -19,9 +19,9 @@ if __name__ == '__main__':
     util_obj = DBUtils()
     try:
         # create table
+        # DROP TABLE IF EXISTS product_details cascade;
         create_table_query = """
-                    DROP TABLE IF EXISTS product_details cascade;
-                    CREATE TABLE product_details (
+                    CREATE TABLE IF NOT EXISTS product_details (
                         sku                 TEXT PRIMARY KEY,
                         name                TEXT,
                         description         TEXT
@@ -30,7 +30,7 @@ if __name__ == '__main__':
         util_obj.execute_query(create_table_query)
         print("product_details table created")
         # create index on name column
-        index_query = "CREATE INDEX idx_product_name ON product_details(name);"
+        index_query = "CREATE INDEX IF NOT EXISTS idx_product_name ON product_details(name);"
         util_obj.execute_query(index_query)
         print("index created on product_name")
         # read csv file
@@ -43,8 +43,8 @@ if __name__ == '__main__':
         util_obj.batch_insert(filtered_df, "product_details")
 
         # create aggregated view
-        agg_query = 'CREATE MATERIALIZED VIEW aggregated_view as select name, count(sku) as "no. of products" '\
-                    ' from product_details group by name;'
+        agg_query = 'CREATE MATERIALIZED VIEW IF NOT EXISTS aggregated_view as select name, count(sku) as "no. of ' \
+                    'products" from product_details group by name;'
         util_obj.execute_query(agg_query)
         print("aggregated_view created on product_details table")
 

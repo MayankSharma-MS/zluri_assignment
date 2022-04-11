@@ -4,6 +4,4 @@ docker run --name zluriPostgresDb -p 5455:5432 -e POSTGRES_USER=zluriUser -e POS
 
 sleep 3
 
-wget -c https://drive.google.com/file/d/1wefOZkMRwCphRMUt4pjTatBlFTFyQQyI -O Zluri_Assignment_Dataset.csv
-
-python3 start.py
+python start.py
