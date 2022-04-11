@@ -25,3 +25,4 @@ All 1 to 5. However, there's always some scope for improvement.
 # Assumptions taken into account for the task
 1) **sku** being primary key, every conflicting record is to be replaced with the latest one.
 2) **name** column is the product name, which is used for aggregated view.
+3) Aggregated view is to be updated less frequently, hence created MATERIALIZED VIEW.
