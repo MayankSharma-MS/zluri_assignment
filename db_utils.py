@@ -7,6 +7,7 @@ class DBConnection:
     __shared_instance = None
 
     @staticmethod
+    @retry(stop_max_attempt_number=3, stop_max_delay=6000, wait_fixed=1000)
     def get_connection():
         if not DBConnection.__shared_instance:
             DBConnection.__shared_instance = DBConnection.__create_connection()
