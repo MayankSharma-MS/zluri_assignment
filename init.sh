@@ -2,5 +2,3 @@ docker run --name zluriPostgresDb -p 5455:5432 -e POSTGRES_USER=zluriUser -e POS
 
 pip install -r requirements.txt
 
-python3 start.py
-
