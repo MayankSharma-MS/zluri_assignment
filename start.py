@@ -34,8 +34,8 @@ if __name__ == '__main__':
         util_obj.execute_query(index_query)
         print("index created on product_name")
         # read csv file
-        file_path = "Zluri_Assignment_Dataset"
-        file_path = "short_data.csv"
+        file_path = "Zluri_Assignment_Dataset.csv"
+        # file_path = "short_data.csv"
         df = pd.read_csv(file_path)
         filtered_df = df.groupby(['sku'], as_index=False).last()
 
