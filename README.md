@@ -4,8 +4,9 @@ Prerequisites - Docker, Python 3.X
 
 Steps to run - 
 1) clone repo https://github.com/MayankSharma-MS/zluri_assignment
-2) chmod 
-3) run ./init.sh
+2) run ./init.sh
+
+Note: If docker container spin up takes time and python script fails to get connection, retry using this command **python start.py**
 
 # Table Schema and sample data
  
@@ -20,7 +21,7 @@ All 1 to 5. However, there's always some scope for improvement.
 # If had more time to invest in this
 
 1) Manage variables in a config, currently credentials and queries are all over the place
-2) Divide csv into smaler chunks and process in parrallel. However, the largest file given in assignment gets processed under 45 secs with single process.
+2) Divide csv into smaler chunks and process in parrallel. However, the largest file given in assignment gets processed under 65 secs with single process.
 
 # Assumptions taken into account for the task
 1) **sku** being primary key, every conflicting record is to be replaced with the latest one.
