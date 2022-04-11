@@ -5,8 +5,9 @@ Prerequisites - Docker, Python 3.X
 Steps to run - 
 1) clone repo https://github.com/MayankSharma-MS/zluri_assignment
 2) run ./init.sh
+3) run python start.py
 
-Note: If docker container spin up takes time and python script fails to get connection, retry using this command **python start.py**
+Note: If docker container spin up takes time and python script fails to get connection, retry step 3.
 
 # Table Schema and sample data
  
