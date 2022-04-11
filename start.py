@@ -2,19 +2,8 @@ import traceback
 import time
 from db_utils import DBUtils
 import pandas as pd
-import os
-import sys
-
-code_dir_path = os.path.dirname(os.path.realpath(__file__))
-sys.path.append(os.path.join(code_dir_path, "..", "data"))
-# def setup_postgres():
-#     os.system(
-#         "docker run --name zluriPostgresDb -p 5455:5432 -e POSTGRES_USER=zluriUser -e POSTGRES_PASSWORD=jarvis -e "
-#         "POSTGRES_DB=zluriTransactionDB -v ${HOME}/docker-postgres-data:/var/lib/postgresql/data -d postgres")
-
 
 if __name__ == '__main__':
-    # setup_postgres()
     start_time = time.time()
     util_obj = DBUtils()
     try:
@@ -34,7 +23,7 @@ if __name__ == '__main__':
         util_obj.execute_query(index_query)
         print("index created on product_name")
         # read csv file
-        file_path = "Zluri_Assignment_Dataset.csv"
+        file_path = "Zluri_Assignment_Dataset"
         # file_path = "short_data.csv"
         df = pd.read_csv(file_path)
         filtered_df = df.groupby(['sku'], as_index=False).last()
